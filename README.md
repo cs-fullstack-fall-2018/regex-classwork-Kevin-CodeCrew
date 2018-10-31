@@ -20,18 +20,16 @@ Test Data: ABC, xYz, XYZ, xyz, dEf, MLK
 4. Write the JavaScript to reformat phone numbers from 901-555-2112 to (901) 555-2112
 
 ```
-let test_data = "901-555-2112, 502-554-2613, 270-554-9001";
+var test_data = "901-555-2112, 502-554-2613, 270-554-9001";
 
 var myregexp = /([0-9]{3})-([0-9]{3})-([0-9]{4})/g;
 var match = myregexp.exec(test_data);
-while (match != null) {
-    for (var i = 0; i < match.length; i++) {
-        // matched text: match[i]
-    }
-    match = myregexp.exec(test_data);
+
+while (match != null) {  
     if (match) {
-        console.log(`(${ match[1] }) ${ match[2] }-${ match[3] }`) ;
-        }
+        console.log('('+match[1]+') ' +match[2]+'-'+match[3]) ;
+        match = myregexp.exec(test_data);
+    }
 }
 
 ```
